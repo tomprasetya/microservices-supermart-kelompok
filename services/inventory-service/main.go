@@ -110,7 +110,7 @@ func main() {
 		}
 	}()
 
-	// Jalankan REST Server pada Port 8080
+	// Jalankan REST Server pada Port 8081
 	http.HandleFunc("/api/v1/stock", restStockHandler)
 	fmt.Println("[REST] Inventory Service siap di port :8081")
 	if err := http.ListenAndServe(":8081", nil); err != nil {
