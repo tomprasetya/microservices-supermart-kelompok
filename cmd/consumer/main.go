@@ -11,7 +11,11 @@ import (
 )
 
 func main() {
-	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
+	rabbitURL := os.Getenv("RABBITMQ_URL")
+if rabbitURL == "" {
+    rabbitURL = "amqp://guest:guest@localhost:5672/"
+}
+conn, err := amqp.Dial(rabbitURL)
 	if err != nil {
 		log.Fatalf("Gagal koneksi ke RabbitMQ: %v", err)
 	}
